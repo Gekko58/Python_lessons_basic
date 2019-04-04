@@ -27,7 +27,10 @@ def first_task():
 def second_task():
     first_value = input("Введите значение первой переменной: ")
     second_value = input("Введите значение второй переменной: ")
-    print("Выводим их в обратном порядке\n", second_value, first_value)
+    bufer = first_value
+    first_value = second_value
+    second_value = bufer
+    print("Выводим первую переменную: ", first_value, "\nВыводим вторую переменную: ", second_value)
 
 # Задача-3: Запросите у пользователя его возраст.
 # Если ему есть 18 лет, выведите: "Доступ разрешен",
