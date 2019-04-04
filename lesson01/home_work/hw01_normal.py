@@ -1,6 +1,8 @@
 
 __author__ = 'Жуков Евгений'
 
+import math
+
 # Задача-1: Дано произвольное целое число, вывести самую большую цифру этого числа.
 # Например, дается x = 58375.
 # Нужно вывести максимальную цифру в данном числе, т.е. 8.
@@ -29,7 +31,9 @@ def first_task():
 def second_task():
     first_value = input("Введите значение первой переменной: ")
     second_value = input("Введите значение второй переменной: ")
-    first_value, second_value = second_value, first_value
+    first_tuple = (first_value, second_value)
+    first_value = first_tuple[1]
+    second_value = first_tuple[0]
     print("Выводим первую переменную: ", first_value, "\nВыводим вторую переменную: ", second_value)
 
 # Задача-3: Напишите программу, вычисляющую корни квадратного уравнения вида
@@ -40,7 +44,23 @@ def second_task():
 # math.sqrt(4) - вычисляет корень числа 4
 
 def tree_task():
-    pass
+    print("Введите коэффициенты для уровнения: ")
+    a = float(input("a = "))
+    b = float(input("b = "))
+    c = float(input("c = "))
+    #Вычисляем дискриминант
+    diskriminant = b ** 2 - 4 * a * c
+    print("Дискриминант равен ", diskriminant)
+    if diskriminant > 0: #Если дискриминант больше 0, два корня
+        x1 = (-b + math.sqrt(diskriminant)) / (2 * a)
+        x2 = (-b - math.sqrt(diskriminant)) / (2 * a)
+        print("Первый корень: ", x1, "\nВторой корень: ", x2)
+    elif diskriminant == 0: #Если дискриминант равен 0, один корень
+        x = -b / (2 * a)
+        print("Корень: ", x)
+    else:
+        print("Корней нет")
+
 
 
 user_input = int(input("Три задания. Введите номер задания: "))
