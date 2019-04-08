@@ -25,7 +25,13 @@ def first_task():
 # Удалите из первого списка элементы, присутствующие во втором списке.
 
 def second_task():
-    pass
+    first_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+    second_list = [1, 3, 5, 7, 9]
+    first_set = set(first_list)
+    second_set = set(second_list)
+    new_set = first_set.difference(second_set)
+    first_list = list(new_set)
+    print('Значения первого списка без значений из второго: ', first_list)
 
 # Задача-3:
 # Дан произвольный список из целых чисел.
