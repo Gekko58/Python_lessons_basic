@@ -39,7 +39,14 @@ def second_task():
 # если элемент кратен двум, то разделить его на 4, если не кратен, то умножить на два.
 
 def tree_task():
-    pass
+    first_list = [2, 8, 10, 15, 20, 33, 7, 1, 9, 0]
+    new_list = []
+    for index in first_list:
+        if index % 2 == 0:
+            new_list.append(index / 4)
+        else:
+            new_list.append(index * 2)
+    print('Новый лист: ', new_list)
 
 #Запуск задач для проверки
 user_input = int(input('Введите номер задачи: '))
