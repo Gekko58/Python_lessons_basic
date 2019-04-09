@@ -1,3 +1,14 @@
+import random #Для генерации случайных чисел
+
+def random_list(number, beginning, end): #Функция генерирует случайный список из целых чисел
+    index = 0
+    return_list = []
+    while index < number:
+        random_number = random.randint(beginning, end)
+        return_list.append(random_number)
+        index += 1
+    return return_list
+
 # Задача-1:
 # Дан список, заполненный произвольными целыми числами, получите новый список,
 # элементами которого будут квадратные корни элементов исходного списка,
@@ -5,6 +16,16 @@
 # если такой корень вообще можно извлечь
 # Пример: Дано: [2, -5, 8, 9, -25, 25, 4]   Результат: [3, 5, 2]
 
+def first_task():
+    input_list = random_list(30, -100, 100)
+    print('Входные данные: ', input_list)
+    output_list = []
+    for index in input_list:
+        toward = abs(index) ** 0.5
+        if toward.is_integer():
+            toward = int(toward)
+            output_list.append(toward)
+    print('Результат: ', output_list)
 
 # Задача-2: Дана дата в формате dd.mm.yyyy, например: 02.11.2013.
 # Ваша задача вывести дату в текстовом виде, например: второе ноября 2013 года.
@@ -16,6 +37,8 @@
 # Подсказка:
 # для получения случайного числа используйте функцию randint() модуля random
 
+def second_task():
+    pass
 
 # Задача-4: Дан список, заполненный произвольными целыми числами.
 # Получите новый список, элементами которого будут: 
@@ -23,3 +46,17 @@
 # например, lst = [1, 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 2, 4, 5, 6]
 # б) элементы исходного списка, которые не имеют повторений:
 # например, lst = [1 , 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 4, 6]
+
+def tree_task():
+    pass
+
+#Запуск задач для проверки
+user_input = int(input('Введите номер задачи: '))
+if user_input == 1:
+    first_task()
+elif user_input == 2:
+    second_task()
+elif user_input == 3:
+    tree_task()
+else:
+    print('Не верный ввод')
