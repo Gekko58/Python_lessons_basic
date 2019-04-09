@@ -102,7 +102,10 @@ def third_task():
 # например, lst = [1 , 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 4, 6]
 
 def fourth_task():
-    pass
+    #first_list = random_list(10, 1, 4)
+    first_list = [1, 2, 4, 5, 6, 2, 5, 2]
+    print('Исходный список: ', first_list)
+    print('Неповторяющиеся элементы списка: ', set(first_list))
 
 #Запуск задач для проверки
 user_input = int(input('Введите номер задачи: '))
