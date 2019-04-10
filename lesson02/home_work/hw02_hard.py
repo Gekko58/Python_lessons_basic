@@ -24,7 +24,41 @@ def first_task():
 #  (т.е. 2 символа для дня, 2 - для месяца, 4 - для года)
 
 def second_task():
-    pass
+    dict_month = {1: 'январе',
+                  2: 'феврале',
+                  3: 'марте',
+                  4: 'апреле',
+                  5: 'мае',
+                  6: 'июне',
+                  7: 'июле',
+                  8: 'августе',
+                  9: 'сентябре',
+                  10: 'октябре',
+                  11: 'ноябре',
+                  12: 'декабре',
+                  }
+    user_input = input('Введите дату в формате dd.mm.yyyy: ')
+    point = user_input.rfind('.')
+    if point == 5:
+        month = int(user_input[3:5])
+        day = int(user_input[:2])
+        year = int(user_input[6:])
+        if day <= 0 or month <= 0 or year <= 0:
+            print('Не верно введена дата, отрицательное значение')
+        elif month > 12:
+            print('Не верно введена дата, в году всего 12 месяцев')
+        elif month == 2 and day > 28:
+            print('Не верно введена дата, в {} не может быть больше 28 дней'.format(dict_month[month]))
+        elif month == 1 and day > 31 or month == 3 and day > 31 or month == 5 and day > 31 or month == 7 and day > 31 or month == 8 and day > 31 or month == 10 and day > 31 or month == 12 and day > 31:
+            print('Не верно введена дата, в {} не может быть больше 31 дня'.format(dict_month[month]))
+        elif month == 4 and day > 30 or month == 6 and day > 30 or month == 9 and day > 30 or month == 11 and day > 30:
+            print('Не верно введена дата, в {} не может быть больше 30 дней'.format(dict_month[month]))
+        elif year > 9999:
+            print('Не верно введена дата, год вводится четырмя цифрами')
+        else:
+            print('Дата введена верно: ', user_input)
+    else:
+        print('Не верно введена дата, формат такой: dd.mm.yyyy')
 
 # Пример корректной даты
 date = '01.11.1985'
