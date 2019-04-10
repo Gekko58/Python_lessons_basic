@@ -102,10 +102,15 @@ def third_task():
 # например, lst = [1 , 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 4, 6]
 
 def fourth_task():
-    #first_list = random_list(10, 1, 4)
-    first_list = [1, 2, 4, 5, 6, 2, 5, 2]
-    print('Исходный список: ', first_list)
-    print('Неповторяющиеся элементы списка: ', set(first_list))
+    input_list = random_list(10, 1, 20)
+    print('Исходный список: ', input_list)
+    print('Убрали дубликаты: ', set(input_list))
+    output_list = []
+    for index in input_list:
+        if input_list.count(index) == 1:
+            output_list.append(index)
+    print('Элементы в единственном экземпляре: ', output_list)
+
 
 #Запуск задач для проверки
 user_input = int(input('Введите номер задачи: '))
