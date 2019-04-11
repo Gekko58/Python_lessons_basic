@@ -5,7 +5,9 @@
 # Для решения задачи не используйте встроенные функции и функции из модуля math.
 
 def my_round(number, ndigits):
-    pass
+    new_string = f'%.{ndigits}f'
+    return (new_string % number)
+
 
 
 print(my_round(2.1234567, 5))
