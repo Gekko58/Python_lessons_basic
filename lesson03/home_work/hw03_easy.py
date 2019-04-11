@@ -22,7 +22,18 @@ print(my_round(2.9999967, 5))
 # !!!P.S.: функция не должна НИЧЕГО print'ить
 
 def lucky_ticket(ticket_number):
-    pass
+    new_string = str(ticket_number)
+    if len(new_string) != 6:
+        return 'В билете должно быть шесть цифр'
+    else:
+        sum_first_half = int(new_string[0]) + int(new_string[1]) + int(new_string[2])
+        sum_second_half_string = int(new_string[3]) + int(new_string[4]) + int(new_string[5])
+        if sum_first_half == sum_second_half_string:
+            return 'Счастливый'
+        else:
+            return 'Не счастливый'
+
+
 
 
 print(lucky_ticket(123006))
