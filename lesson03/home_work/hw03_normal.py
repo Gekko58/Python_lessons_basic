@@ -19,7 +19,13 @@ def fibonacci(n, m):
 
 
 def sort_to_max(origin_list):
-    pass
+    number = 1
+    while number < len(origin_list):
+        for index in range(len(origin_list) - 1):
+            if origin_list[index] > origin_list[index + 1]:
+                origin_list[index], origin_list[index + 1] = origin_list[index + 1], origin_list[index]
+        number += 1
+    print(origin_list)
 
 sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
 
