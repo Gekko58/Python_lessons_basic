@@ -33,6 +33,15 @@ sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
 # Напишите собственную реализацию стандартной функции filter.
 # Разумеется, внутри нельзя использовать саму функцию filter.
 
+def myfilter(function, filter_list):
+    output_list = []
+    for index in filter_list:
+        if function(index) == True:
+            output_list.append(index)
+    return output_list
+
+input_list = [1, 2, 3, 4, '5', 6, 7, 8, 9, 0]
+print(myfilter((lambda x: x == '5'), input_list))
 
 # Задача-4:
 # Даны четыре точки А1(х1, у1), А2(x2 ,у2), А3(x3 , у3), А4(х4, у4).
