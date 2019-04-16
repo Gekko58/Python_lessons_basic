@@ -34,6 +34,12 @@ def second_task():
 # + Элемент положительный
 # + Элемент не кратен 4
 
+def third_task():
+    input_list = [random.randint(1, 100) for _ in range(10)]
+    print('Исходный список: ', input_list)
+    output_list = [index for index in input_list if index % 3 == 0 and index > 0 and index % 4 != 0]
+    print('Выходной список: ', output_list)
+
 #Проверка задач
 user_input = (input('Введите номер задачи: '))
 try:
@@ -42,6 +48,8 @@ try:
         first_task()
     elif user_input == 2:
         second_task()
+    elif user_input == 3:
+        third_task()
     else:
         print('Не верный ввод')
 except ValueError:
