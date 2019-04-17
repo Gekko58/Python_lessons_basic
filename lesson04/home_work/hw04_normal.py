@@ -1,4 +1,5 @@
 import re
+import random
 
 # Задание-1:
 # Вывести символы в нижнем регистре, которые находятся вокруг
@@ -78,9 +79,8 @@ def second_task():
                         break
     print('Сортирпованный список: ', output_list)
     print('Теперь с использованием регулярных выражений\n')
-    output_buffer = re.findall(r'([a-z]{2}[A-Z]{3})', line_2)
-    print(output_buffer)
-    #print(re.findall(r'[A-Z]{2}', output_buffer))
+    output_buffer = re.findall(r'[a-z]{2}[A-Z]{3,}', line_2)
+    print(re.findall(r'[A-Z]+', str(output_buffer)))
 
 # Задание-3:
 # Напишите скрипт, заполняющий указанный файл (самостоятельно задайте имя файла)
@@ -89,6 +89,13 @@ def second_task():
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
 
+def third_task():
+    input_list = [random.randint(0, 9) for _ in range(2500)]
+    print(input_list)
+    #file = open('number.txt', 'r')
+    for index in input_list:
+        #file.write(str(index))
+    #file.close()
 
 
 #Проверка задач
@@ -100,7 +107,7 @@ try:
     elif user_input == 2:
         second_task()
     elif user_input == 3:
-        pass #third_task()
+        third_task()
     else:
         print('Не верный ввод')
 except ValueError:
