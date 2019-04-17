@@ -77,6 +77,10 @@ def second_task():
                         output_list.append(line_2[index: index_buffer - 2])
                         break
     print('Сортирпованный список: ', output_list)
+    print('Теперь с использованием регулярных выражений\n')
+    output_buffer = re.findall(r'([a-z]{2}[A-Z]{3})', line_2)
+    print(output_buffer)
+    #print(re.findall(r'[A-Z]{2}', output_buffer))
 
 # Задание-3:
 # Напишите скрипт, заполняющий указанный файл (самостоятельно задайте имя файла)
@@ -84,6 +88,8 @@ def second_task():
 # 2500-значное произвольное число.
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
+
+
 
 #Проверка задач
 user_input = (input('Введите номер задачи: '))
