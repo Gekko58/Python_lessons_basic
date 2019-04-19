@@ -1,15 +1,34 @@
-from os import mkdir, rmdir, listdir, walk, remove, listdir
+from os import mkdir, rmdir, listdir, walk, remove, listdir, chdir
 from shutil import copyfile
 
 #Функции для выполнения задания нормал
 
+def change_folder(folder):
+    """
+    Функция совершает переход в заданную директорию
+    :param folder: папка, куда необходимо перейти
+    :return: 0 - переход выполнен, 1 - нет такой директории
+    """
+    try:
+        chdir(folder)
+        return 0
+    except FileNotFoundError:
+        return 1
+
 def look_in_folder(mode, folder):
+    """
+    Функция показывает содержимое директории
+    :param mode: 0 - показать только папки, любое другое значение - показать всё сожержимое
+    :param folder: папка, содержимое которой необходимо показать
+    :return:
+    """
     if mode == 0:
         directory_list = walk(folder)
         for patch, folder_list, file_list in directory_list:
             print(patch)
     else:
         print(listdir(folder))
+    return None
 
 def delete_folder(path):
     """
