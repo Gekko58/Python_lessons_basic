@@ -1,7 +1,15 @@
-from os import mkdir, rmdir, listdir, walk, remove
+from os import mkdir, rmdir, listdir, walk, remove, listdir
 from shutil import copyfile
 
 #Функции для выполнения задания нормал
+
+def look_in_folder(mode, folder):
+    if mode == 0:
+        directory_list = walk(folder)
+        for patch, folder_list, file_list in directory_list:
+            print(patch)
+    else:
+        print(listdir(folder))
 
 def delete_folder(path):
     """
@@ -63,10 +71,8 @@ def first_task():
 # Напишите скрипт, отображающий папки текущей директории.
 
 def second_task():
-    directory_list = walk(".")
     print("Список каталогов текущей директории: ")
-    for patch, folder_list, file_list in directory_list:
-        print(patch)
+    look_in_folder(0, ".")
 
 # Задача-3:
 # Напишите скрипт, создающий копию файла, из которого запущен данный скрипт.
