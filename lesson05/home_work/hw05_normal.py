@@ -1,4 +1,4 @@
-from lesson05.home_work.hw05_easy import create_folder, delete_folder
+from lesson05.home_work.hw05_easy import create_folder, delete_folder, look_in_folder, change_folder
 
 # Задача-1:
 # Напишите небольшую консольную утилиту,
@@ -24,9 +24,14 @@ try:
                        "4. Создать папку\n"
                        "Ваше действие: "))
     if user_input == 1:
-        pass
+        path = input("Введите имя папки: ")
+        buffer = change_folder(path)
+        if buffer == 1:
+            print(f"Не могу перейти в папку {path}, она не существует")
+        else:
+            print(f"Успешно перешли в папку {path}")
     elif user_input == 2:
-        pass
+        look_in_folder(1, ".")
     elif user_input == 3:
         path = input("Введите имя директории: ")
         buffer = delete_folder(path)
