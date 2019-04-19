@@ -1,4 +1,4 @@
-from os import mkdir, rmdir
+from os import mkdir, rmdir, listdir, walk
 
 # Задача-1:
 # Напишите скрипт, создающий директории dir_1 - dir_9 в папке,
@@ -33,6 +33,12 @@ def first_task():
 # Задача-2:
 # Напишите скрипт, отображающий папки текущей директории.
 
+def second_task():
+    directory_list = walk(".")
+    print("Список каталогов текущей директории: ")
+    for patch, folder_list, file_list in directory_list:
+        print(patch)
+
 # Задача-3:
 # Напишите скрипт, создающий копию файла, из которого запущен данный скрипт.
 
@@ -42,6 +48,8 @@ try:
     user_input = int(input("Введите номер задачи: "))
     if user_input == 1:
         first_task()
+    elif user_input == 2:
+        second_task()
     else:
         print("Не верный ввод. Здесь всего три задачи")
 except ValueError:
