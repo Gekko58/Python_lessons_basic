@@ -1,4 +1,5 @@
-from os import mkdir, rmdir, listdir, walk
+from os import mkdir, rmdir, listdir, walk, remove
+from shutil import copyfile
 
 # Задача-1:
 # Напишите скрипт, создающий директории dir_1 - dir_9 в папке,
@@ -42,6 +43,20 @@ def second_task():
 # Задача-3:
 # Напишите скрипт, создающий копию файла, из которого запущен данный скрипт.
 
+def third_task():
+    try:
+        user_input = int(input("1 - скопировать файл\n2 - удалить файл\nВведите цифру: "))
+        if user_input == 1:
+            copyfile("hw05_easy.py", "hw05_easy.py_backup")
+        elif user_input == 2:
+            try:
+                remove("hw05_easy.py_backup")
+            except FileNotFoundError:
+                print("Копии файла нет")
+        else:
+            print("Не верный ввод")
+    except ValueError:
+        print("Не верный ввод. Необходимо вводить цыфры")
 
 #Запуск проверки работы программ
 try:
@@ -50,7 +65,9 @@ try:
         first_task()
     elif user_input == 2:
         second_task()
+    elif user_input == 3:
+        third_task()
     else:
         print("Не верный ввод. Здесь всего три задачи")
 except ValueError:
-    print("Не верный ввод")
+    print("Не верный ввод, необходимо вводить цыфры")
