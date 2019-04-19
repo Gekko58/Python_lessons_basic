@@ -1,4 +1,4 @@
-from lesson05.home_work.hw05_easy import create_folder
+from lesson05.home_work.hw05_easy import create_folder, delete_folder
 
 # Задача-1:
 # Напишите небольшую консольную утилиту,
@@ -28,14 +28,21 @@ try:
     elif user_input == 2:
         pass
     elif user_input == 3:
-        pass
+        path = input("Введите имя директории: ")
+        buffer = delete_folder(path)
+        if buffer == 1:
+            print(f"Директории {path} не существует")
+        elif buffer == 2:
+            print(f"Диретория {path} не пуста, не могу удалить")
+        else:
+            print(f"Директория {path} успешно удалена")
     elif user_input == 4:
         path = input("Введите имя директории: ")
         buffer = create_folder(path)
-        if buffer == 0:
-            print("Директория успешно создана")
+        if buffer == 1:
+            print(f"Директория {path} уже существует")
         else:
-            print("Директория уже существует")
+            print(f"Директория {path} успешно создана")
     else:
         print("Не верный ввод")
 except ValueError:
