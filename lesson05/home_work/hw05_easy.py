@@ -4,6 +4,11 @@ from shutil import copyfile
 #Функции для выполнения задания нормал
 
 def delete_folder(path):
+    """
+    Функция удаляет директорию в текущей папке
+    :param path: имя директории
+    :return: 0 - если успешно, 1 - если нет такой директории, 2 - если директория не пуста
+    """
     try:
         rmdir(path)
         return 0
@@ -21,7 +26,7 @@ def create_folder(path):
     try:
         mkdir(path)
         return 0
-    except NameError:
+    except FileExistsError:
         return 1
 
 # Задача-1:
