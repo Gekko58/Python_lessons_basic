@@ -2,11 +2,26 @@ from os import mkdir, rmdir, listdir, walk, remove
 from shutil import copyfile
 
 #Функции для выполнения задания нормал
+
+def delete_folder(path):
+    try:
+        rmdir(path)
+        return 0
+    except FileNotFoundError:
+        return 1
+    except OSError:
+        return 2
+
 def create_folder(path):
+    """
+    Функция создаёт диркторию в текущей папке
+    :param path: имя создаваемой директории
+    :return: 0 если успешно, 1 если директория уже существует
+    """
     try:
         mkdir(path)
         return 0
-    except OSError:
+    except NameError:
         return 1
 
 # Задача-1:
@@ -23,16 +38,16 @@ def first_task():
                     path = f"dir_{index}"
                     buffer = create_folder(path)
                     if buffer == 1:
-                        print("Директория существует")
-                        break
+                        print(f"Директория {path} существует")
                 break
             elif user_input == 2:
-                for index in range(1, 9):
-                    try:
-                        path = f"dir_{index}"
-                        rmdir(path)
-                    except OSError:
-                        print("Директория не существует или не пуста")
+                for index in range(1, 10):
+                    path = f"dir_{index}"
+                    buffer = delete_folder(path)
+                    if buffer == 1:
+                        print(f"Директория {path} не существует")
+                    elif buffer == 2:
+                        print(f"Директория {path} не пуста")
                 break
             else:
                 print("Не верный ввод")
@@ -67,15 +82,16 @@ def third_task():
         print("Не верный ввод. Необходимо вводить цыфры")
 
 #Запуск проверки работы программ
-try:
-    user_input = int(input("Введите номер задачи: "))
-    if user_input == 1:
-        first_task()
-    elif user_input == 2:
-        second_task()
-    elif user_input == 3:
-        third_task()
-    else:
-        print("Не верный ввод. Здесь всего три задачи")
-except ValueError:
-    print("Не верный ввод, необходимо вводить цыфры")
+if __name__ == "__main__":
+    try:
+        user_input = int(input("Введите номер задачи: "))
+        if user_input == 1:
+            first_task()
+        elif user_input == 2:
+            second_task()
+        elif user_input == 3:
+            third_task()
+        else:
+            print("Не верный ввод. Здесь всего три задачи")
+    except ValueError:
+        print("Не верный ввод, необходимо вводить цыфры")
