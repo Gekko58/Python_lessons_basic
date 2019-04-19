@@ -1,6 +1,14 @@
 from os import mkdir, rmdir, listdir, walk, remove
 from shutil import copyfile
 
+#Функции для выполнения задания нормал
+def create_folder(path):
+    try:
+        mkdir(path)
+        return 0
+    except OSError:
+        return 1
+
 # Задача-1:
 # Напишите скрипт, создающий директории dir_1 - dir_9 в папке,
 # из которой запущен данный скрипт.
@@ -11,12 +19,12 @@ def first_task():
         try:
             user_input = int(input("1 - создать папки\n2 - удалить папки\nВведите цифру: "))
             if user_input == 1:
-                for index in range(1, 9):
-                    try:
-                        path = f"dir_{index}"
-                        mkdir(path)
-                    except OSError:
+                for index in range(1, 10):
+                    path = f"dir_{index}"
+                    buffer = create_folder(path)
+                    if buffer == 1:
                         print("Директория существует")
+                        break
                 break
             elif user_input == 2:
                 for index in range(1, 9):
